@@ -11,3 +11,4 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 kubectl taint node $(hostname) node-role.kubernetes.io/master:NoSchedule-
 kubectl taint node $(hostname) node-role.kubernetes.io/control-plane:NoSchedule-
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: bb
+  name: bb
+spec:
+  containers:
+  - image: public.ecr.aws/runecast/busybox:latest
+    name: bb
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo hello; sleep 10;done"]
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
