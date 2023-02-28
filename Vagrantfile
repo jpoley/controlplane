@@ -31,6 +31,9 @@ Vagrant.configure("2") do |config|
           vb.customize ["modifyvm", :id, "--groups", ("/" + settings["cluster_name"])]
         end
     end
+    cp.vm.synced_folder "installers/",  "/home/vagrant/installers"
+    cp.vm.synced_folder "workloads/",  "/home/vagrant/workloads"
+    cp.vm.synced_folder "src/",  "/home/vagrant/src"
     cp.vm.provision "shell",
       env: {
         "DNS_SERVERS" => settings["network"]["dns_servers"].join(" "),
