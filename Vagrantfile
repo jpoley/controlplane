@@ -49,7 +49,8 @@ Vagrant.configure("2") do |config|
         "SERVICE_CIDR" => settings["network"]["service_cidr"]
       },
       path: "scripts/controlplane.sh"
-    cp.vm.provision "shell", path: "workloads/crossplane.sh"
+    cp.vm.provision "shell", path: "installers/get-helm.sh", privileged: true
+    cp.vm.provision "shell", path: "workloads/crossplane.sh", privileged: true
     cp.vm.provision "shell", path: "workloads/argocd.sh", privileged: true
     cp.vm.provision "shell", path: "workloads/argowf.sh", privileged: true
   end

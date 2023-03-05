@@ -1,2 +1,4 @@
 .vagrant/
 .vscode/
+configs/*
+*.log
